@@ -4,9 +4,10 @@
 
 # Carbon & Whale · IMS
 
-### Out-Of-Home (OOH) Asset Inventory Management System
+###Inventory Management System
 
-*A role-governed operational platform designed for high-density transit metro networks and retail advertising inventory.*
+_A role-governed operational platform designed for high-density transit metro
+networks and retail advertising inventory._
 
 [![React 19](https://img.shields.io/badge/React-19-blue.svg)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF.svg)](https://vitejs.dev/)
@@ -19,35 +20,47 @@
 
 ## 📌 Overview
 
-**Carbon & Whale IMS** provides a unified operational dashboard for transit metro and retail out-of-home (OOH) media networks. It streamlines the advertising asset lifecycle:
+**Carbon & Whale IMS** provides a unified operational dashboard for transit
+metro and retail out-of-home (OOH) media networks. It streamlines the
+advertising asset lifecycle:
 
-- **Asset Registry & Rate Cards**: Real-time tracking of dimensions, illumination, locations, and pricing.
-- **Interest Queue & Priority Timers**: Transparent queue slots with automated working-day expiry engines.
-- **Campaign Execution Flow**: Structured progression from *Draft* &rarr; *Onboarding* &rarr; *GTP Review* &rarr; *Live*.
-- **Geo-Tagged Proof (GTP)**: Field operations photo uploads with geolocation and timestamp verification.
-- **Role-Based Access Control (RBAC)**: Distinct permissions for Sales, Operations, Finance, Finance Manager, and Admin.
-- **Immutable Audit Trail**: Append-only activity ledger recording all status changes, approvals, and queue updates.
+- **Asset Registry & Rate Cards**: Real-time tracking of dimensions,
+  illumination, locations, and pricing.
+- **Interest Queue & Priority Timers**: Transparent queue slots with automated
+  working-day expiry engines.
+- **Campaign Execution Flow**: Structured progression from _Draft_ &rarr;
+  _Onboarding_ &rarr; _GTP Review_ &rarr; _Live_.
+- **Geo-Tagged Proof (GTP)**: Field operations photo uploads with geolocation
+  and timestamp verification.
+- **Role-Based Access Control (RBAC)**: Distinct permissions for Sales,
+  Operations, Finance, Finance Manager, and Admin.
+- **Immutable Audit Trail**: Append-only activity ledger recording all status
+  changes, approvals, and queue updates.
 
 ---
 
 ## 🏗️ Tech Stack
 
 - **Frontend**: [React 19](https://react.dev/) + [Vite](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/) +
+  [shadcn/ui](https://ui.shadcn.com/)
 - **Data & State**: [@tanstack/react-query](https://tanstack.com/query/latest)
 - **Routing**: [React Router DOM](https://reactrouter.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Backend / Database**: [Supabase](https://supabase.com/) (PostgreSQL with Row Level Security)
+- **Backend / Database**: [Supabase](https://supabase.com/) (PostgreSQL with Row
+  Level Security)
 
 ---
 
 ## ⚡ Getting Started
 
 ### 1. Prerequisites
+
 - **Node.js**: v18.0.0 or higher
 - **npm** or **yarn**
 
 ### 2. Environment Configuration
+
 Create a `.env` file inside the `frontend/` directory:
 
 ```env
@@ -68,7 +81,8 @@ npm install
 npm run dev
 ```
 
-Open your browser and navigate to `http://localhost:3000` (or the port specified in terminal).
+Open your browser and navigate to `http://localhost:3000` (or the port specified
+in terminal).
 
 ---
 
@@ -76,15 +90,15 @@ Open your browser and navigate to `http://localhost:3000` (or the port specified
 
 The system includes preconfigured demo roles for verification and testing:
 
-| Role | Default Email | Scope & Responsibilities |
-| :--- | :--- | :--- |
-| **System Admin** | `admin@ims.test` | System settings, user management, and configuration |
-| **Sales Executive** | `sales@ims.test` | Inventory lookup, client CRM, interest queue slots |
-| **Field Operations** | `ops@ims.test` | Mounting checklists, physical audits, GTP uploads |
-| **Finance Specialist** | `finance@ims.test` | Invoicing, payment verification, client billing |
-| **Finance Manager** | `fm@ims.test` | Final booking authorization, slot hold approvals |
+| Role                   | Default Email      | Scope & Responsibilities                            |
+| :--------------------- | :----------------- | :-------------------------------------------------- |
+| **System Admin**       | `admin@ims.test`   | System settings, user management, and configuration |
+| **Sales Executive**    | `sales@ims.test`   | Inventory lookup, client CRM, interest queue slots  |
+| **Field Operations**   | `ops@ims.test`     | Mounting checklists, physical audits, GTP uploads   |
+| **Finance Specialist** | `finance@ims.test` | Invoicing, payment verification, client billing     |
+| **Finance Manager**    | `fm@ims.test`      | Final booking authorization, slot hold approvals    |
 
-*(Default test password: `Password123!`)*
+_(Default test password: `Password123!`)_
 
 ---
 
@@ -110,5 +124,5 @@ The system includes preconfigured demo roles for verification and testing:
 
 ## 📄 License & Brand Notice
 
-© **Carbon & Whale**. All rights reserved.  
+© **Carbon & Whale**. All rights reserved.\
 Proprietary software for transit and retail Out-Of-Home media operations.
