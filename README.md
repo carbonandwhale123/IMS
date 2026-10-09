@@ -86,21 +86,6 @@ in terminal).
 
 ---
 
-## 👥 Preconfigured Roles & Personas
-
-The system includes preconfigured demo roles for verification and testing:
-
-| Role                   | Default Email      | Scope & Responsibilities                            |
-| :--------------------- | :----------------- | :-------------------------------------------------- |
-| **System Admin**       | `admin@ims.test`   | System settings, user management, and configuration |
-| **Sales Executive**    | `sales@ims.test`   | Inventory lookup, client CRM, interest queue slots  |
-| **Field Operations**   | `ops@ims.test`     | Mounting checklists, physical audits, GTP uploads   |
-| **Finance Specialist** | `finance@ims.test` | Invoicing, payment verification, client billing     |
-| **Finance Manager**    | `fm@ims.test`      | Final booking authorization, slot hold approvals    |
-
-_(Default test password: `Password123!`)_
-
----
 
 ## 📁 Project Structure
 
