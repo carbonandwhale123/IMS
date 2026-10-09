@@ -73,21 +73,10 @@
   <!-- Geometric Whale Logo with Soft Depth Shadow -->
   <g filter="url(#whale-shadow)">
     <!-- Black Body -->
-    <polygon
-      points="398,951 1371,848 1862,960 1904,1164 1731,1053 1257,1395 1111,1615 941,1429 400,1247"
-      fill="#000000"
-    />
+    <polygon points="398,951 1371,848 1862,960 1904,1164 1731,1053 1257,1395 1111,1615 941,1429 400,1247" fill="#000000" />
     <!-- White Belly Patch -->
-    <polygon
-      points="397,1197 776,1182 941,1429 400,1247"
-      fill="#FFFFFF"
-    />
+    <polygon points="397,1197 776,1182 941,1429 400,1247" fill="#FFFFFF" />
     <!-- Eye -->
-    <circle
-      cx="499.4"
-      cy="1054.9"
-      r="28.7"
-      fill="#FFFFFF"
-    />
+    <circle cx="499.4" cy="1054.9" r="28.7" fill="#FFFFFF" />
   </g>
 </svg>

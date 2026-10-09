@@ -275,12 +275,40 @@ export default function Login({ initialMode }) {
   // Forgot Password Mutation
   const forgot = useMutation({
     mutationFn: async (targetEmail) => {
-      if (!targetEmail.trim()) throw new Error("Please enter your work email.");
+      const cleanEmail = targetEmail.trim().toLowerCase();
+      if (!cleanEmail) throw new Error("Please enter your work email.");
+
+      // Check if user is an authorized staff member
+      const { data: authRecord } = await supabase
+        .from("authorized_users")
+        .select("email, is_registered, name")
+        .eq("email", cleanEmail)
+        .maybeSingle();
+
+      if (!authRecord) {
+        throw new Error(
+          "Account not found: This email is not registered with Carbon & Whale IMS. Please verify your email or contact an administrator."
+        );
+      }
+
       const redirectUrl = `${window.location.origin}/login?mode=reset`;
-      const { error } = await supabase.auth.resetPasswordForEmail(targetEmail.trim().toLowerCase(), {
+      const { error } = await supabase.auth.resetPasswordForEmail(cleanEmail, {
         redirectTo: redirectUrl,
       });
-      if (error) throw error;
+
+      if (error) {
+        if (
+          error.message?.toLowerCase().includes("recovery email") ||
+          error.status === 500 ||
+          error.message?.toLowerCase().includes("rate limit") ||
+          error.message?.toLowerCase().includes("unexpected_failure")
+        ) {
+          throw new Error(
+            "Supabase SMTP Error: The authentication service could not dispatch the recovery email. Please check your Supabase Custom SMTP configuration or contact an administrator."
+          );
+        }
+        throw error;
+      }
       return true;
     },
     onSuccess: () => {
@@ -290,7 +318,9 @@ export default function Login({ initialMode }) {
     },
     onError: (err) => {
       sound.warning();
-      toast.error(err?.message ?? "Failed to send reset email");
+      toast.error(err?.message ?? "Failed to send reset email", {
+        duration: 6000,
+      });
     },
   });
 
@@ -850,6 +880,20 @@ export default function Login({ initialMode }) {
                           <Mail className="absolute left-3 top-1/2 size-4 -translate-y-1/2 text-muted-foreground pointer-events-none" />
                         </div>
                       </div>
+
+                      {forgot.isError && (
+                        <div className="rounded-xl border border-rose-200 bg-rose-50/80 p-3.5 text-xs text-rose-900 shadow-xs dark:border-rose-900/50 dark:bg-rose-950/40 dark:text-rose-200">
+                          <p className="font-semibold text-rose-700 dark:text-rose-400">
+                            Unable to send recovery email
+                          </p>
+                          <p className="mt-1 leading-relaxed">
+                            {forgot.error?.message}
+                          </p>
+                          <p className="mt-2 text-[11px] text-muted-foreground border-t border-rose-200/60 pt-2 dark:border-rose-900/40">
+                            Tip: If Supabase Custom SMTP is pending setup, please reach out to your system administrator (<span className="font-medium text-foreground">abirambijoy@gmail.com</span>) to manually reset your access credentials.
+                          </p>
+                        </div>
+                      )}
 
                       <Button
                         type="submit"

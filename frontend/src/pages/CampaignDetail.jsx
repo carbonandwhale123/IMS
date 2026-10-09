@@ -401,7 +401,7 @@ function InvoiceDialog({ campaign }) {
     },
     onSuccess: () => {
       refresh();
-      notifyBrandAdStatusUpdate(campaign.id, "live");
+      // notifyBrandAdStatusUpdate(campaign.id, "live");
       toast.success("Invoice & Milestones recorded — campaign is now live!");
       setOpen(false);
     },
@@ -733,7 +733,7 @@ function GtpCard({ campaign, gtp }) {
 
         // Release asset and auto-promote waitlist
         await promoteNextWaitlistOrFreeAsset(c.asset_id || campaign.asset_id, c.asset_code || campaign.asset_code);
-        notifyBrandAdStatusUpdate(campaign.id, "closed");
+        // notifyBrandAdStatusUpdate(campaign.id, "closed");
         assetFreed = true;
       } else {
         const finalApproved = body.approve && gtp.is_final;
@@ -960,7 +960,7 @@ function CancellationPanel({ campaign }) {
     onSuccess: (_r, vars) => {
       refresh();
       if (vars.approve) {
-        notifyBrandAdStatusUpdate(campaign.id, "closing");
+        // notifyBrandAdStatusUpdate(campaign.id, "closing");
       }
       toast.success(vars.approve ? "Cancellation approved — duration shortened & closure GTP created" : "Cancellation rejected");
     },
@@ -1112,7 +1112,7 @@ export default function CampaignDetail() {
     },
     onSuccess: () => {
       refresh();
-      notifyBrandAdStatusUpdate(campaignId, "invoicing");
+      // notifyBrandAdStatusUpdate(campaignId, "invoicing");
       toast.success("Ad onboarded — invoice request raised with Finance");
     },
     onError: (err) => toast.error(errMessage(err, "Could not mark as onboarded")),
@@ -1154,7 +1154,7 @@ export default function CampaignDetail() {
       await promoteNextWaitlistOrFreeAsset(campaign.asset_id, campaign.asset_code);
 
       // Notify brand ad status
-      notifyBrandAdStatusUpdate(campaign.id, "closed");
+      // notifyBrandAdStatusUpdate(campaign.id, "closed");
 
       return { ok: true };
     },

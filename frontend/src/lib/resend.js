@@ -192,8 +192,13 @@ export async function sendClientPortalEmail({
 /**
  * Automatically sends an ad status update email with the client PoP link to the brand
  * whenever the campaign stage or status changes (e.g. live, onboarding, closing, closed).
+ * 
+ * [DISABLED TEMPORARILY AS REQUESTED]
  */
 export async function notifyBrandAdStatusUpdate(campaignId, newStage, customMessage = "") {
+  // Automated status update emails are currently disabled/commented out.
+  // Uncomment below when ready to re-enable automated transactional email notifications.
+  /*
   try {
     if (!campaignId) return null;
 
@@ -267,4 +272,6 @@ export async function notifyBrandAdStatusUpdate(campaignId, newStage, customMess
     console.warn("Automated ad status notification email could not be delivered:", err?.message || err);
     return null;
   }
+  */
+  return null;
 }
